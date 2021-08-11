@@ -29,9 +29,8 @@ logger.addHandler(handler)
 
 
 def main(options={}):
-    text = "髙橋"
-
     from jp_cvu_normalizer.jp_cvu_normalizer import JpCvuNormalizer
+    text = "髙橋"
     jp_cvu_normalizer = JpCvuNormalizer()
     print(jp_cvu_normalizer.normalize(text))
 
