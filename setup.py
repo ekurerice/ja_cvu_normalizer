@@ -28,7 +28,7 @@ setup(
     author_email="alexandria.rindybell@gmail.com",
     packages=find_packages(exclude=["test"]),
     package_data={
-        "resource/*"
+        "resource": ["*"],
     },
     include_package_data=True,
     install_requires=read_requirements(),
