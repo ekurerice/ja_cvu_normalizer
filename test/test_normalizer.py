@@ -40,9 +40,3 @@ class TestJpCvuNormalzier (unittest.TestCase):
         actual = self.jp_cvu_normalizer.normalize("髙")
         expected = "高"
         self.assertEqual(expected, actual)
-
-    def test_normalizer(self):
-        actual = self.jp_cvu_normalizer.normalize(
-            "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa髙aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-        expected = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa高aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        self.assertEqual(expected, actual)
