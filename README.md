@@ -8,10 +8,10 @@ $ pip install jp-cvu-normalizer
 
 ## 利用例
 ```python
-from jp_cvu_normalizer.jp_cvu_normalizer import JpCvuNormalizer
+from ja_cvu_normalizer.ja_cvu_normalizer import JaCvuNormalizer
 text = "髙橋"
-jp_cvu_normalizer = JpCvuNormalizer()
-print(jp_cvu_normalizer.normalize(text))
+ja_cvu_normalizer = JaCvuNormalizer()
+print(ja_cvu_normalizer.normalize(text))
 # -> 高橋
 ```
 
