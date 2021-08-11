@@ -4,11 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+build = "*"
 
 [dev-packages]
 autopep8 = "*"
 m2r = "*"
 twine = "*"
+build = "*"
 
 [requires]
 python_version = "3.9"
