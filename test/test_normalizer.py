@@ -34,12 +34,15 @@ logger.addHandler(handler)
 class TestJpCvuNormalzier (unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        mapping_table = cvuj_reader(
-            "character_variants_unicode_to_jis/ISO-2022-JP.txt")
-        self.jp_cvu_normalizer = JpCvuNormalizer(mapping_table)
+        self.jp_cvu_normalizer = JpCvuNormalizer()
 
-    def test_normalizer(self):
-
+    def test_normalize_1(self):
         actual = self.jp_cvu_normalizer.normalize("髙")
         expected = "高"
+        self.assertEqual(expected, actual)
+
+    def test_normalizer(self):
+        actual = self.jp_cvu_normalizer.normalize(
+            "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa髙aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+        expected = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa高aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         self.assertEqual(expected, actual)
