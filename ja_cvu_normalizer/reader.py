@@ -2,9 +2,7 @@
 # Date:
 # Filename:
 
-from ja_cvu_normalizer.ja_cvu_normalizer import JaCvuNormalizer
-from ja_cvu_normalizer.reader import cvuj_reader
-import unittest
+import csv
 import os
 import sys
 import argparse
@@ -31,12 +29,22 @@ logger.addHandler(handler)
 # logger.addHandler(handler2)
 
 
-class TestJpCvuNormalzier (unittest.TestCase):
-    @classmethod
-    def setUpClass(self):
-        self.jp_cvu_normalizer = JpCvuNormalizer()
+def decomment(csvfile):
+    for row in csvfile:
+        raw = row.split('#')[0].strip()
+        if raw:
+            yield raw
 
-    def test_normalize_1(self):
-        actual = self.jp_cvu_normalizer.normalize("髙")
-        expected = "高"
-        self.assertEqual(expected, actual)
+
+def to_char(unicodes: list):
+    return "".join(map(lambda u: chr(int(u, 16)), unicodes))
+
+
+def cvuj_reader(filepath):
+    mapping_table = dict()
+    with open(filepath) as f:
+        for row in csv.reader(decomment(f), delimiter="\t"):
+            mapper = (to_char([row[0]]), to_char(row[1].split(" ")))
+            mapping_table[mapper[0]] = mapper[1]
+
+    return mapping_table

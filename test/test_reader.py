@@ -2,7 +2,7 @@
 # Date:
 # Filename:
 
-from jp_cvu_normalizer.reader import cvuj_reader
+from ja_cvu_normalizer.reader import cvuj_reader
 import unittest
 import os
 import sys
