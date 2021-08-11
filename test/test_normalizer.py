@@ -5,9 +5,7 @@
 from ja_cvu_normalizer.ja_cvu_normalizer import JaCvuNormalizer
 from ja_cvu_normalizer.reader import cvuj_reader
 import unittest
-import os
 import sys
-import argparse
 from logging import Formatter, getLogger, StreamHandler, DEBUG, WARNING, FileHandler
 
 __author__ = ""
@@ -34,7 +32,7 @@ logger.addHandler(handler)
 class TestJpCvuNormalzier (unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        self.jp_cvu_normalizer = JpCvuNormalizer()
+        self.jp_cvu_normalizer = JaCvuNormalizer()
 
     def test_normalize_1(self):
         actual = self.jp_cvu_normalizer.normalize("髙")

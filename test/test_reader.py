@@ -38,5 +38,5 @@ class TestReader (unittest.TestCase):
 
     def test_reader_1(self):
         mapping_table = cvuj_reader(
-            "jp_cvu_normalizer/resource/ISO-2022-JP.txt")
+            "ja_cvu_normalizer/resource/ISO-2022-JP.txt")
         self.assertTrue("髙" in mapping_table)
