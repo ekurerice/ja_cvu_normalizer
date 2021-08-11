@@ -20,10 +20,14 @@ def read_requirements():
     return requirements
 
 
+with open("README.md") as f:
+    long_description = f.read()
+
 setup(
     name="jp_cvu_normalizer",
     version="0.2.0",
     author="ekurerice",
+    long_description=long_description,
     url="https://github.com/ekurerice/jp_cvu_normalizer",
     author_email="alexandria.rindybell@gmail.com",
     packages=find_packages(exclude=["test"]),
