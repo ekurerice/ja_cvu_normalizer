@@ -3,7 +3,7 @@
 
 ## 導入方法
 ```shell
-$ pip install jp-cvu-normalizer
+$ pip install ja-cvu-normalizer
 ```
 
 ## 利用例
