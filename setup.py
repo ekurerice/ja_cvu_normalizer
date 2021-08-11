@@ -2,30 +2,22 @@ import os
 import sys
 from setuptools import find_packages, setup
 
-
-def decomment(file):
-    for row in file:
-        if "==" in row:
-            yield row
-        continue
-
-
 def read_requirements():
-    """Parse requirements from requirements.txt."""
-    reqs_path = os.path.join('.', 'requirements.txt')
-    with open(reqs_path, 'r') as f:
-        f = decomment(f)
-        requirements = [line.rstrip() for line in f]
-    print(requirements)
-    return requirements
-
+    import json
+    pipfile_lock = json.load(open(os.path.join('.', 'Pipfile.lock')))
+    return list(pipfile_lock["default"].keys())
 
 with open("README.md") as f:
     long_description = f.read()
+    try:
+        from m2r import convert
+        long_description = convert(long_description)
+    except:
+        pass
 
 setup(
     name="jp_cvu_normalizer",
-    version="0.2.0",
+    version="0.2.4.1",
     author="ekurerice",
     long_description=long_description,
     url="https://github.com/ekurerice/jp_cvu_normalizer",
