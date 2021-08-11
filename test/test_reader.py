@@ -12,6 +12,7 @@ from logging import Formatter, getLogger, StreamHandler, DEBUG, WARNING, FileHan
 __author__ = ""
 __date__ = ""
 
+
 """ variables """
 formatter = Formatter('%(asctime)-15s - %(levelname)-8s - %(message)s')
 logger = getLogger(__name__)
@@ -37,5 +38,5 @@ class TestReader (unittest.TestCase):
 
     def test_reader_1(self):
         mapping_table = cvuj_reader(
-            "resource/ISO-2022-JP.txt")
+            "jp_cvu_normalizer/resource/ISO-2022-JP.txt")
         self.assertTrue("髙" in mapping_table)

@@ -31,7 +31,7 @@ logger.addHandler(handler)
 
 
 class JpCvuNormalizer(object):
-    def __init__(self, mapping_table=None, mapping_table_path="jp_cvu_normalizer/resource/ISO-2022-JP.txt"):
+    def __init__(self, mapping_table=None, mapping_table_path=os.path.join(os.path.dirname(__file__), "resource/ISO-2022-JP.txt")):
         if mapping_table_path:
             self.mapping_table = cvuj_reader(mapping_table_path)
 
