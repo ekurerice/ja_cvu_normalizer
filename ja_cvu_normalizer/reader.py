@@ -42,7 +42,7 @@ def to_char(unicodes: list):
 
 def cvuj_reader(filepath):
     mapping_table = dict()
-    with open(filepath) as f:
+    with open(filepath, encoding='utf-8') as f:
         for row in csv.reader(decomment(f), delimiter="\t"):
             mapper = (to_char([row[0]]), to_char(row[1].split(" ")))
             mapping_table[mapper[0]] = mapper[1]
