@@ -3,7 +3,6 @@
 # Filename:
 
 from .reader import cvuj_reader
-import re
 import os
 import sys
 import argparse
@@ -45,5 +44,5 @@ class JaCvuNormalizer(object):
     def normalize(self, text: str):
         _text = text
         for key in self.mapping_table:
-            _text = re.sub(key, self.mapping_table[key], _text)
+            _text = _text.replace(key, self.mapping_table[key])
         return _text
