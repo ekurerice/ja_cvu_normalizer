@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ja_cvu_normalizer"
+version = "0.2.10"
+description = "異体字正規化モジュール"
+readme = "README.md"
+requires-python = ">=3.6"
+authors = [
+    { name = "ekurerice", email = "alexandria.rindybell@gmail.com" }
+]
+license = { text = "MIT License" }
+keywords = ["normalizer", "Japanese", "Unicode"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = "https://github.com/ekurerice/ja_cvu_normalizer"
+Issues = "https://github.com/ekurerice/ja_cvu_normalizer/issues"
+
+[tool.setuptools]
+packages = ["ja_cvu_normalizer"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+ja_cvu_normalizer = ["*.txt"]
+
